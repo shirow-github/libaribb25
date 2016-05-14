@@ -1899,6 +1899,7 @@ LAST:
 	return r;
 }
 
+#if 0
 static void dump_pts(uint8_t *src, int32_t crypt)
 {
 	int32_t pts_dts_flag;
@@ -1934,6 +1935,7 @@ static void dump_pts(uint8_t *src, int32_t crypt)
 		fflush(stdout);
 	}
 }
+#endif
 
 static int proc_arib_std_b25(ARIB_STD_B25_PRIVATE_DATA *prv)
 {
