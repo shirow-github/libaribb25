@@ -17,8 +17,8 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef TS_COMMON_TYPES_H
-#define TS_COMMON_TYPES_H
+#ifndef B25_TS_COMMON_TYPES_H
+#define B25_TS_COMMON_TYPES_H
 
 #include "portable.h"
 
@@ -52,4 +52,4 @@ typedef struct {
 	uint8_t           *tail;
 } TS_SECTION;
 
-#endif /* TS_COMMON_TYPES_H */
+#endif /* B25_TS_COMMON_TYPES_H */

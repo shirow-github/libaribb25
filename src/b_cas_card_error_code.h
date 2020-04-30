@@ -17,8 +17,8 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef B_CAS_CARD_ERROR_CODE_H
-#define B_CAS_CARD_ERROR_CODE_H
+#ifndef B25_B_CAS_CARD_ERROR_CODE_H
+#define B25_B_CAS_CARD_ERROR_CODE_H
 
 #define B_CAS_CARD_ERROR_INVALID_PARAMETER              -1
 #define B_CAS_CARD_ERROR_NOT_INITIALIZED                -2
@@ -27,4 +27,4 @@ PERFORMANCE OF THIS SOFTWARE.
 #define B_CAS_CARD_ERROR_NO_ENOUGH_MEMORY               -5
 #define B_CAS_CARD_ERROR_TRANSMIT_FAILED                -6
 
-#endif /* B_CAS_CARD_ERROR_CODE_H */
+#endif /* B25_B_CAS_CARD_ERROR_CODE_H */
