@@ -152,193 +152,190 @@ MULTI2 module.
 
 ## Changelog
 
-  * 2016, 2/18 - ver 0.2.7
+* 2016, 2/18 - ver. 0.2.7  
 
-    Minor release to update documentation and fix compilation on OSX.
+  Minor release to update documentation and fix compilation on OSX.
 
-  * 2014,10/21 - ver 0.2.6
+* 2014,10/21 - ver 0.2.6
 
-    Migration of the build system to autoconf.
-    Allow setting packet size to skip discovery process.
-    Various fixes and platform compatibility fixes.
+  Migration of the build system to autoconf.  
+  Allow setting packet size to skip discovery process.  
+  Various fixes and platform compatibility fixes.
 
-　* 2012, 2/13 - ver. 0.2.5
+* 2012, 2/13 - ver. 0.2.5
 
-　　WOWOW でノンスクランブル <-> スクランブル切り替え後に復号が
-　　行われないことがあるバグを修正
+  WOWOW でノンスクランブル <-> スクランブル切り替え後に復号が  
+  行われないことがあるバグを修正
 
-　　http://www.marumo.ne.jp/db2012_2.htm#13 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.2.5.lzh
+  http://www.marumo.ne.jp/db2012_2.htm#13 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.2.5.lzh
 
-　* 2009, 4/19 - ver. 0.2.4
+* 2009, 4/19 - ver. 0.2.4
 
-　　終端パケットが野良パケット (PMT に記載されていない PID の
-　　パケット) だった場合に、ECM が 1 つだけでも復号が行われない
-　　バグを修正
+  終端パケットが野良パケット (PMT に記載されていない PID の  
+  パケット) だった場合に、ECM が 1 つだけでも復号が行われない  
+  バグを修正
 
-　　transport_error_indicator が立っている場合はパケット処理を
-　　行わず、そのまま素通しするように変更
+  transport_error_indicator が立っている場合はパケット処理を  
+  行わず、そのまま素通しするように変更
 
-　　http://www.marumo.ne.jp/db2009_4.htm#19 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.2.4.lzh
+  http://www.marumo.ne.jp/db2009_4.htm#19 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.2.4.lzh
 
-　* 2008, 12/30 - ver. 0.2.3
+* 2008, 12/30 - ver. 0.2.3
 
-　　CA_descriptor の解釈を行う際に CA_system_id が B-CAS カード
-　　から取得したものと一致するか確認を行うように変更
+  CA_descriptor の解釈を行う際に CA_system_id が B-CAS カード  
+  から取得したものと一致するか確認を行うように変更
 
-　　http://www.marumo.ne.jp/db2008_c.htm#30 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.2.3.lzh
+  http://www.marumo.ne.jp/db2008_c.htm#30 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.2.3.lzh
 
-　* 2008, 11/10 - ver. 0.2.2
+* 2008, 11/10 - ver. 0.2.2
 
-　　修正ユリウス日から年月日への変換処理をより正確なものへ変更
+  修正ユリウス日から年月日への変換処理をより正確なものへ変更
 
-　　TS パケットサイズの特定方法を変更
+  TS パケットサイズの特定方法を変更
 
-　　http://www.marumo.ne.jp/db2008_b.htm#10 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.2.2.lzh
+  http://www.marumo.ne.jp/db2008_b.htm#10 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.2.2.lzh
 
-　* 2008, 4/9 - ver. 0.2.1
+* 2008, 4/9 - ver. 0.2.1
 
-　　PAT 更新時に復号漏れが発生していたバグを修正
-　　(ver. 0.2.0 でのエンバグ)
+  PAT 更新時に復号漏れが発生していたバグを修正  
+  (ver. 0.2.0 でのエンバグ)
 
-　　野良 PID (PMT に記載されていないストリーム) が存在した場合
-　　TS 内の ECM がひとつだけならば、その ECM で復号する形に変更
+  野良 PID (PMT に記載されていないストリーム) が存在した場合  
+  TS 内の ECM がひとつだけならば、その ECM で復号する形に変更
 
-　　EMM の B-CAS カードへの送信をオプションで選択可能に変更 (-m)
-　　進捗状況の表示をオプションで選択可能に変更 (-v)
-　　通電制御情報 (EMM受信用) を表示するオプションを追加 (-p)
+  EMM の B-CAS カードへの送信をオプションで選択可能に変更 (-m)  
+  進捗状況の表示をオプションで選択可能に変更 (-v)  
+  通電制御情報 (EMM受信用) を表示するオプションを追加 (-p)
 
-　　http://www.marumo.ne.jp/db2008_4.htm#9 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.2.1.lzh
+  http://www.marumo.ne.jp/db2008_4.htm#9 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.2.1.lzh
 
-　* 2008, 4/6 - ver. 0.2.0
+* 2008, 4/6 - ver. 0.2.0
 
-　　EMM 対応
-　　利用中の B-CAS カード ID 向けの EMM を検出した場合、EMM を
-　　B-CAS カードに渡す処理を追加
+  EMM 対応  
+  利用中の B-CAS カード ID 向けの EMM を検出した場合、EMM を  
+  B-CAS カードに渡す処理を追加
 
-　　ECM 処理の際に未契約応答が返された場合、処理負荷軽減の為、
-　　以降、その PID の ECM を B-CAS カードで処理しないように変
-　　更 (EMM を処理した場合は再び ECM を処理するように戻す)
+  ECM 処理の際に未契約応答が返された場合、処理負荷軽減の為、  
+  以降、その PID の ECM を B-CAS カードで処理しないように変  
+  更 (EMM を処理した場合は再び ECM を処理するように戻す)
 
-　　進捗を nn.nn% の書式で標準エラー出力に表示するように変更
-　　
-　　http://www.marumo.ne.jp/db2008_4.htm#6 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.2.0.lzh
+  進捗を nn.nn% の書式で標準エラー出力に表示するように変更  
 
-　* 2008, 3/31 - ver. 0.1.9
+  http://www.marumo.ne.jp/db2008_4.htm#6 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.2.0.lzh
 
-　　MULTI2 モジュールのインスタンスが未作製の状況で、MULTI2 の
-　　機能を呼び出して例外を発生させることがあったバグを修正
+* 2008, 3/31 - ver. 0.1.9
 
-　　# パッチを提供してくれた方に感謝
+  MULTI2 モジュールのインスタンスが未作製の状況で、MULTI2 の  
+  機能を呼び出して例外を発生させることがあったバグを修正
 
-　　http://www.marumo.ne.jp/db2008_3.htm#31 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.9.lzh
+  #パッチを提供してくれた方に感謝
 
-　* 2008, 3/24 - ver. 0.1.8
+  http://www.marumo.ne.jp/db2008_3.htm#31 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.9.lzh
 
-　　-s オプション (NULL パケットの削除) を追加
-　　-s 1 で NULL パケットを出力ファイルには保存しなくなる
-　　デフォルトは -s 0 の NULL パケット保持
+* 2008, 3/24 - ver. 0.1.8
 
-　　http://www.marumo.ne.jp/db2008_3.htm#24 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.8.lzh
+  -s オプション (NULL パケットの削除) を追加  
+  -s 1 で NULL パケットを出力ファイルには保存しなくなる  
+  デフォルトは -s 0 の NULL パケット保持
 
-　* 2008, 3/17 - ver. 0.1.7
+  http://www.marumo.ne.jp/db2008_3.htm#24 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.8.lzh
 
-　　arib_std_b25.h に「extern "C" {」を閉じるコードがなかった問題 
-　　(C++ コードから利用する場合にコンパイルエラーを発生させる) を
-　　修正
+* 2008, 3/17 - ver. 0.1.7
 
-　　TS パケットの中途でストリームが切り替わるケースで問題が発生し
-　　にくくなるように、arib_std_b25.c 内のコードを修正
+  arib_std_b25.h に「extern "C" {」を閉じるコードがなかった問題  
+  (C++ コードから利用する場合にコンパイルエラーを発生させる) を  
+  修正
 
-　　http://www.marumo.ne.jp/db2008_3.htm#17 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.7.lzh
+  TS パケットの中途でストリームが切り替わるケースで問題が発生し  
+  にくくなるように、arib_std_b25.c 内のコードを修正
 
-　* 2008, 3/16 - ver. 0.1.6
+  http://www.marumo.ne.jp/db2008_3.htm#17 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.7.lzh
 
-　　PMT 更新の際、ECM 関連の状況が変更 (スクランブル - ノンスク
-　　ランブルの切り替えや、ECM PID の変更等) が行われても、それが
-　　反映されていなかった問題を修正
+* 2008, 3/16 - ver. 0.1.6
 
-　　http://www.marumo.ne.jp/db2008_3.htm#16 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.6.lzh
+  PMT 更新の際、ECM 関連の状況が変更 (スクランブル - ノンスク  
+  ランブルの切り替えや、ECM PID の変更等) が行われても、それが  
+  反映されていなかった問題を修正
 
-　* 2008, 2/14
+  http://www.marumo.ne.jp/db2008_3.htm#16 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.6.lzh
 
-　　readme.txt (このファイル) を修正
-　　ソースコードのライセンスについての記述を追加
+* 2008, 2/14
 
-　* 2008, 2/12 - ver. 0.1.5
+  readme.txt (このファイル) を修正  
+  ソースコードのライセンスについての記述を追加
 
-　　PMT の更新に伴い、どのプログラムにも所属しなくなった PID (スト
-　　リーム) でパケットが送信され続けた場合、そのパケットの復号が
-　　できなくなっていた問題を修正
+* 2008, 2/12 - ver. 0.1.5
 
-　　http://www.marumo.ne.jp/db2008_2.htm#12 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.5.lzh
+  PMT の更新に伴い、どのプログラムにも所属しなくなった PID (スト  
+  リーム) でパケットが送信され続けた場合、そのパケットの復号が  
+  できなくなっていた問題を修正
 
-　* 2008, 2/2 - ver. 0.1.4
+  http://www.marumo.ne.jp/db2008_2.htm#12 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.5.lzh
 
-　　ver. 0.1.3 での PMT 処理方法変更に問題があり、PMT が更新された
-　　場合、それ以降で正常な処理が行えなくなっていたバグを修正
+* 2008, 2/2 - ver. 0.1.4
 
-　　B-CAS カードとの通信でエラーが発生した場合のリトライ処理が機能
-　　していなかったバグを修正
+  ver. 0.1.3 での PMT 処理方法変更に問題があり、PMT が更新された  
+  場合、それ以降で正常な処理が行えなくなっていたバグを修正
 
-　　http://www.marumo.ne.jp/db2008_2.htm#2 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.4.lzh
+  B-CAS カードとの通信でエラーが発生した場合のリトライ処理が機能  
+  していなかったバグを修正
 
-　* 2008, 2/1 - ver. 0.1.3
+  http://www.marumo.ne.jp/db2008_2.htm#2 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.4.lzh
 
-　　有料放送等で未契約状態の B-CAS カードを使った際に、鍵が取得で
-　　きていないにもかかわらず、間違った鍵で復号をしていた問題に対処
+* 2008, 2/1 - ver. 0.1.3
 
-　　鍵が取得できなかった ECM に関連付けられたストリームでは復号を
-　　行わず、スクランブルフラグを残したまま入力を素通しする形に変更
-　　鍵が取得できない ECM が存在する場合、終了時にチャネル番号と
-　　B-CAS カードから取得できたエラー番号を警告メッセージとして表示
-　　する形に変更
+  有料放送等で未契約状態の B-CAS カードを使った際に、鍵が取得で  
+  きていないにもかかわらず、間違った鍵で復号をしていた問題に対処
 
-　　暗号化されていないプログラムで例外を発生させていたバグを修正
+  鍵が取得できなかった ECM に関連付けられたストリームでは復号を  
+  行わず、スクランブルフラグを残したまま入力を素通しする形に変更  
+  鍵が取得できない ECM が存在する場合、終了時にチャネル番号と  
+  B-CAS カードから取得できたエラー番号を警告メッセージとして表示  
+  する形に変更
 
-　　http://www.marumo.ne.jp/db2008_2.htm#1 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.3.lzh
+  暗号化されていないプログラムで例外を発生させていたバグを修正
 
-　* 2008, 1/11 - ver. 0.1.2
+  http://www.marumo.ne.jp/db2008_2.htm#1 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.3.lzh
 
-　　デジタル BS 放送等で、PAT に登録されているのに、ストリーム内で
-　　PMT が一切出現しないことがある場合に対応
+* 2008, 1/11 - ver. 0.1.2
 
-　　PMT 内の記述子領域 2 に CA_descriptor が存在する場合に対応する
-　　ため arib_std_b25.c 内部での処理構造を変更
+  デジタル BS 放送等で、PAT に登録されているのに、ストリーム内で  
+  PMT が一切出現しないことがある場合に対応
 
-　　別プログラムと同時実行するためにスマートカードの排他制御指定を
-　　変更
+  PMT 内の記述子領域 2 に CA_descriptor が存在する場合に対応する  
+  ため arib_std_b25.c 内部での処理構造を変更
 
-　　http://www.marumo.ne.jp/db2008_1.htm#11 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.2.lzh
+  別プログラムと同時実行するためにスマートカードの排他制御指定を  
+  変更
 
-　* 2008, 1/7 - ver. 0.1.1
+  http://www.marumo.ne.jp/db2008_1.htm#11 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.2.lzh
 
-　　セクション (PAT/PMT/ECM 等) が複数の TS パケットに分割されている
-　　場合に、正常に処理できなかったり、例外を発生をさせることがある
-　　バグを修正
+* 2008, 1/7 - ver. 0.1.1
 
-　　http://www.marumo.ne.jp/db2008_1.htm#7 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.1.lzh
+  セクション (PAT/PMT/ECM 等) が複数の TS パケットに分割されている  
+  場合に、正常に処理できなかったり、例外を発生をさせることがある  
+  バグを修正
 
-　* 2007, 11/25 - ver. 0.1.0
+  http://www.marumo.ne.jp/db2008_1.htm#7 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.1.lzh
 
-　　公開
+* 2007, 11/25 - ver. 0.1.0
 
-　　http://www.marumo.ne.jp/db2007_b.htm#25 又は
-　　http://www.marumo.ne.jp/junk/arib_std_b25-0.1.0.lzh
+  公開
 
-
-
+  http://www.marumo.ne.jp/db2007_b.htm#25 又は  
+  http://www.marumo.ne.jp/junk/arib_std_b25-0.1.0.lzh
