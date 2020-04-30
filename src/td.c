@@ -1,3 +1,22 @@
+/*******************************************************************************
+Copyright (c) 2007-2012, Kazuhiro Mogi <kazhiro@marumo.ne.jp>
+Other copyright: see committers list
+
+This software is released under the ISC Licence terms
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+*******************************************************************************/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -19,6 +38,7 @@
 
 #include "arib_std_b25.h"
 #include "b_cas_card.h"
+#include "config.h"
 
 typedef struct {
 	int32_t round;
@@ -67,7 +87,7 @@ int main(int argc, char **argv)
 
 static void show_usage()
 {
-	fprintf(stderr, "b25 - ARIB STD-B25 test program ver. 0.2.5 (2012, 2/13)\n");
+	fprintf(stderr, "%s\n", PACKAGE_STRING);
 	fprintf(stderr, "usage: b25 [options] src.m2t dst.m2t [more pair ..]\n");
 	fprintf(stderr, "options:\n");
 	fprintf(stderr, "  -r round (integer, default=4)\n");

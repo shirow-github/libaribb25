@@ -17,26 +17,42 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef B25_PORTABLE_H
-#define B25_PORTABLE_H
+#ifndef B25_ARIBB25API_H
+#define B25_ARIBB25API_H 1 
 
-#include <stdint.h>
-
-#if !defined(WIN32)
-	#define _open  open
-	#define _close close
-	#define _read  read
-	#define _write write
-	#define _lseeki64 lseek
-	#define _telli64(fd)  (lseek(fd,0,SEEK_CUR))
-	#define _O_BINARY     (0)
-	#define _O_RDONLY     (O_RDONLY)
-	#define _O_WRONLY     (O_WRONLY)
-	#define _O_SEQUENTIAL (0)
-	#define _O_CREAT      (O_CREAT)
-	#define _O_TRUNC      (O_TRUNC)
-	#define _S_IREAD      (S_IRUSR|S_IRGRP|S_IROTH)
-	#define _S_IWRITE     (S_IWUSR|S_IWGRP|S_IWOTH)
+/* If building or using aribb25 as a DLL, define ARIBB25_DLL.
+ *  */
+/* TODO: define ARIBB25_BUILD_DLL when building this library as DLL.
+ *  */
+#if defined _WIN32 || defined __CYGWIN__
+  #ifdef ARIBB25_DLL
+    #ifdef ARIBB25_BUILD_DLL
+      #ifdef __GNUC__
+        #define ARIBB25API __attribute__ ((dllexport))
+      #else
+        #define ARIBB25API extern __declspec(dllexport)
+      #endif
+    #else
+      #ifdef __GNUC__
+        #define ARIBB25API __attribute__ ((dllimport))
+      #else
+        #define ARIBB25API extern __declspec(dllimport)
+      #endif
+    #endif
+  #else
+    #if __GNUC__ >= 4
+      #define ARIBB25API __attribute__ ((visibility ("default")))
+    #else
+      #define ARIBB25API extern
+    #endif
+  #endif
+  #define DLL_LOCAL
+#else
+  #if __GNUC__ >= 4
+    #define ARIBB25API __attribute__ ((visibility ("default")))
+  #else
+    #define ARIBB25API extern
+  #endif
 #endif
 
-#endif /* B25_PORTABLE_H */
+#endif /* B25_ARIBB25API_H */

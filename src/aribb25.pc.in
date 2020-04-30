@@ -14,4 +14,4 @@ Description: ARIB STD B25
 Version: @VERSION@
 Cflags: -I${includedir}
 Requires.private: @PC_REQUIRE@
-Libs: -L${libdir} -larib25 @PC_LIBS@
+Libs: -L${libdir} -laribb25 @PC_LIBS@
