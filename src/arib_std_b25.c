@@ -1940,11 +1940,8 @@ LAST:
 	return r;
 }
 
-<<<<<<< HEAD
-#ifdef DEBUG
-=======
+
 #if 0
->>>>>>> master
 static void dump_pts(uint8_t *src, int32_t crypt)
 {
 	int32_t pts_dts_flag;
