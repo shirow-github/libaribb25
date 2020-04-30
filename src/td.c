@@ -98,7 +98,7 @@ static void show_usage()
 	fprintf(stderr, "     0: ignore EMM (default)\n");
 	fprintf(stderr, "     1: send EMM to B-CAS card\n");
 	fprintf(stderr, "  -p power_on_control_info\n");
-	fprintf(stderr, "     0: do nothing additionaly\n");
+	fprintf(stderr, "     0: do nothing additionally\n");
 	fprintf(stderr, "     1: show B-CAS EMM receiving request (default)\n");
 	fprintf(stderr, "  -v verbose\n");
 	fprintf(stderr, "     0: silent\n");
@@ -290,7 +290,7 @@ static void test_arib_std_b25(const char *src, const char *dst, OPTION *opt)
 		
 		offset += sbuf.size;
 		if(opt->verbose != 0){
-			m = (int)(10000*offset/total);
+			m = (int)((uint64_t)10000*offset/total);
 			mbps = 0.0;
 #if defined(WIN32)
 			tick = GetTickCount();
