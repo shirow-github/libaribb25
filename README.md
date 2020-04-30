@@ -152,11 +152,11 @@ MULTI2 module.
 
 ## Changelog
 
-* 2016, 2/18 - ver. 0.2.7  
+* 2016, 2/18 - ver. 0.2.7
 
   Minor release to update documentation and fix compilation on OSX.
 
-* 2014,10/21 - ver 0.2.6
+* 2014,10/21 - ver. 0.2.6
 
   Migration of the build system to autoconf.  
   Allow setting packet size to skip discovery process.  
