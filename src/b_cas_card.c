@@ -261,6 +261,7 @@ static int get_id_b_cas_card(void *bcas, B_CAS_ID *dst)
 		if( p+10 > tail ){
 			return B_CAS_CARD_ERROR_TRANSMIT_FAILED;
 		}
+<<<<<<< HEAD
 		
 		{
 			//int maker_id;
@@ -273,6 +274,10 @@ static int get_id_b_cas_card(void *bcas, B_CAS_ID *dst)
 			//check_code = load_be_uint16(p+8);
 		}
 		
+=======
+
+		prv->id.data[i] = load_be_uint48(p+2);		
+>>>>>>> master
 		p += 10;
 	}
 

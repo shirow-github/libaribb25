@@ -1455,6 +1455,7 @@ static int proc_pmt(ARIB_STD_B25_PRIVATE_DATA *prv, TS_PROGRAM *pgrm)
 	DECRYPTOR_ELEM *dw;
 
 	TS_STREAM_ELEM *strm;
+	TS_STREAM_LIST tmp_old_strm;
 
 	r = 0;
 	dec[0] = NULL;
@@ -1498,12 +1499,8 @@ static int proc_pmt(ARIB_STD_B25_PRIVATE_DATA *prv, TS_PROGRAM *pgrm)
 	}
 	head += length;
 
-	/* unref old stream entries */
-	while( (strm = get_stream_list_head(&(pgrm->old_strm))) != NULL ){
-		unref_stream(prv, strm->pid);
-		memset(strm, 0, sizeof(TS_STREAM_ELEM));
-		put_stream_list_tail(&(prv->strm_pool), strm);
-	}
+	/* save old streams */
+	memcpy(&tmp_old_strm, &(pgrm->old_strm), sizeof(TS_STREAM_LIST));
 
 	/* save current streams */
 	memcpy(&(pgrm->old_strm), &(pgrm->streams), sizeof(TS_STREAM_LIST));
@@ -1515,6 +1512,13 @@ static int proc_pmt(ARIB_STD_B25_PRIVATE_DATA *prv, TS_PROGRAM *pgrm)
 			r = ARIB_STD_B25_ERROR_NO_ENOUGH_MEMORY;
 			goto LAST;
 		}
+	}
+
+	/* unref old stream entries */
+	while( (strm = get_stream_list_head(&tmp_old_strm)) != NULL ){
+		unref_stream(prv, strm->pid);
+		memset(strm, 0, sizeof(TS_STREAM_ELEM));
+		put_stream_list_tail(&(prv->strm_pool), strm);
 	}
 
 	while( head+4 < tail ){
@@ -1917,7 +1921,11 @@ LAST:
 	return r;
 }
 
+<<<<<<< HEAD
 #ifdef DEBUG
+=======
+#if 0
+>>>>>>> master
 static void dump_pts(uint8_t *src, int32_t crypt)
 {
 	int32_t pts_dts_flag;
