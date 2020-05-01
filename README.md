@@ -152,7 +152,11 @@ MULTI2 module.
 
 ## Changelog
 
-* 2016, 2/18 - ver. 0.2.7
+* 2020,05/02 - ver. 0.2.8
+
+  A minor bug has been fixed.  
+
+* 2016,02/18 - ver. 0.2.7
 
   Minor release to update documentation and fix compilation on OSX.
 
@@ -162,7 +166,7 @@ MULTI2 module.
   Allow setting packet size to skip discovery process.  
   Various fixes and platform compatibility fixes.
 
-* 2012, 2/13 - ver. 0.2.5
+* 2012,02/13 - ver. 0.2.5
 
   WOWOW でノンスクランブル <-> スクランブル切り替え後に復号が  
   行われないことがあるバグを修正
@@ -170,7 +174,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2012_2.htm#13 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.2.5.lzh
 
-* 2009, 4/19 - ver. 0.2.4
+* 2009,04/19 - ver. 0.2.4
 
   終端パケットが野良パケット (PMT に記載されていない PID の  
   パケット) だった場合に、ECM が 1 つだけでも復号が行われない  
@@ -182,7 +186,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2009_4.htm#19 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.2.4.lzh
 
-* 2008, 12/30 - ver. 0.2.3
+* 2008,12/30 - ver. 0.2.3
 
   CA_descriptor の解釈を行う際に CA_system_id が B-CAS カード  
   から取得したものと一致するか確認を行うように変更
@@ -190,7 +194,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_c.htm#30 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.2.3.lzh
 
-* 2008, 11/10 - ver. 0.2.2
+* 2008,11/10 - ver. 0.2.2
 
   修正ユリウス日から年月日への変換処理をより正確なものへ変更
 
@@ -199,7 +203,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_b.htm#10 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.2.2.lzh
 
-* 2008, 4/9 - ver. 0.2.1
+* 2008,04/09 - ver. 0.2.1
 
   PAT 更新時に復号漏れが発生していたバグを修正  
   (ver. 0.2.0 でのエンバグ)
@@ -214,7 +218,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_4.htm#9 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.2.1.lzh
 
-* 2008, 4/6 - ver. 0.2.0
+* 2008,04/06 - ver. 0.2.0
 
   EMM 対応  
   利用中の B-CAS カード ID 向けの EMM を検出した場合、EMM を  
@@ -229,7 +233,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_4.htm#6 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.2.0.lzh
 
-* 2008, 3/31 - ver. 0.1.9
+* 2008,03/31 - ver. 0.1.9
 
   MULTI2 モジュールのインスタンスが未作製の状況で、MULTI2 の  
   機能を呼び出して例外を発生させることがあったバグを修正
@@ -239,7 +243,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_3.htm#31 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.9.lzh
 
-* 2008, 3/24 - ver. 0.1.8
+* 2008,03/24 - ver. 0.1.8
 
   -s オプション (NULL パケットの削除) を追加  
   -s 1 で NULL パケットを出力ファイルには保存しなくなる  
@@ -248,7 +252,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_3.htm#24 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.8.lzh
 
-* 2008, 3/17 - ver. 0.1.7
+* 2008,03/17 - ver. 0.1.7
 
   arib_std_b25.h に「extern "C" {」を閉じるコードがなかった問題  
   (C++ コードから利用する場合にコンパイルエラーを発生させる) を  
@@ -260,7 +264,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_3.htm#17 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.7.lzh
 
-* 2008, 3/16 - ver. 0.1.6
+* 2008,03/16 - ver. 0.1.6
 
   PMT 更新の際、ECM 関連の状況が変更 (スクランブル - ノンスク  
   ランブルの切り替えや、ECM PID の変更等) が行われても、それが  
@@ -269,12 +273,12 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_3.htm#16 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.6.lzh
 
-* 2008, 2/14
+* 2008,02/14
 
   readme.txt (このファイル) を修正  
   ソースコードのライセンスについての記述を追加
 
-* 2008, 2/12 - ver. 0.1.5
+* 2008,02/12 - ver. 0.1.5
 
   PMT の更新に伴い、どのプログラムにも所属しなくなった PID (スト  
   リーム) でパケットが送信され続けた場合、そのパケットの復号が  
@@ -283,7 +287,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_2.htm#12 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.5.lzh
 
-* 2008, 2/2 - ver. 0.1.4
+* 2008,02/02 - ver. 0.1.4
 
   ver. 0.1.3 での PMT 処理方法変更に問題があり、PMT が更新された  
   場合、それ以降で正常な処理が行えなくなっていたバグを修正
@@ -294,7 +298,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_2.htm#2 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.4.lzh
 
-* 2008, 2/1 - ver. 0.1.3
+* 2008,02/01 - ver. 0.1.3
 
   有料放送等で未契約状態の B-CAS カードを使った際に、鍵が取得で  
   きていないにもかかわらず、間違った鍵で復号をしていた問題に対処
@@ -310,7 +314,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_2.htm#1 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.3.lzh
 
-* 2008, 1/11 - ver. 0.1.2
+* 2008,01/11 - ver. 0.1.2
 
   デジタル BS 放送等で、PAT に登録されているのに、ストリーム内で  
   PMT が一切出現しないことがある場合に対応
@@ -324,7 +328,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_1.htm#11 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.2.lzh
 
-* 2008, 1/7 - ver. 0.1.1
+* 2008,01/07 - ver. 0.1.1
 
   セクション (PAT/PMT/ECM 等) が複数の TS パケットに分割されている  
   場合に、正常に処理できなかったり、例外を発生をさせることがある  
@@ -333,7 +337,7 @@ MULTI2 module.
   http://www.marumo.ne.jp/db2008_1.htm#7 又は  
   http://www.marumo.ne.jp/junk/arib_std_b25-0.1.1.lzh
 
-* 2007, 11/25 - ver. 0.1.0
+* 2007,11/25 - ver. 0.1.0
 
   公開
 
