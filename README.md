@@ -162,13 +162,11 @@ If compiling from a checked out repository, please make sure you've got the clon
 Then run following commands to compile and install libaribb25:
 
 ```bash
-./bootstrap
-./configure 
-make
-sudo make install
-
-* When you use the libpcsclitebcas library, 
-. /configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclitebcas -I/usr/include/PCSC"
+$ ./bootstrap
+$ ./configure 
+$ make
+$ sudo make install
+$ sudo /sbin/ldconfig
 ```
 
 ## Changelog

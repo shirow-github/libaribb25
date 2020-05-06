@@ -201,10 +201,7 @@
     $ ./configure
     $ make
     $ sudo make install
-
-    * libpcsclitebcas ライブラリを使用する場合、
-    ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclitebcas -I/usr/include/PCSC"
-
+    $ sudo /sbin/ldconfig
 
 【更新履歴】
   ・2020.05/02 - ver. 0.2.8
