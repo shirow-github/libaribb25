@@ -186,6 +186,26 @@
 
 　　1 各モジュールが確保したリソースを解放する
 
+【インストール】
+
+    パッケージ化されたソースからコンパイルする場合は、
+    tarballを解凍して、そのディレクトリに変更してください。
+
+    チェックアウトしたリポジトリからコンパイルする場合は、
+    クローンも取得していることを確認してください。
+    (git clone https://github.com/shirow-github/libarib25.git)
+
+    次に、以下のコマンドを実行して libaribb25 をコンパイルしてインストールします。
+
+    $ ./bootstrap
+    $ ./configure
+    $ make
+    $ sudo make install
+
+    * libpcsclitebcas ライブラリを使用する場合、
+    ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclitebcas -I/usr/include/PCSC"
+
+
 【更新履歴】
   ・2020.05/02 - ver. 0.2.8
 
