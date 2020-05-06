@@ -1,5 +1,7 @@
 # aribb25 library
 
+*Current Version:* 0.2.8
+
 Basic implementation of the ARIB STD-B25 public standard.
 
 Forked from libarib25 and renamed to aribb25.
@@ -149,6 +151,25 @@ MULTI2 module.
 * On PMT change, the decryptor will return 4.
 
 * On PAT change, the process will abort and return 3.
+
+## Get the source and build it
+
+If compiling from the packaged source, unpack the tarball and change to the
+resulting directory.
+
+If compiling from a checked out repository, please make sure you've got the cloned too (use `git clone  https://github.com/shirow-github/libarib25.git`)
+
+Then run following commands to compile and install libaribb25:
+
+```bash
+./bootstrap
+./configure 
+make
+sudo make install
+
+* When you use the libpcsclitebcas library, 
+. /configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclitebcas -I/usr/include/PCSC"
+```
 
 ## Changelog
 
