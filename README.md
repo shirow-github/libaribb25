@@ -163,11 +163,14 @@ Then run following commands to compile and install libaribb25:
 
 ```bash
 $ ./bootstrap
-$ ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclite-bcas -I/usr/include/PCSC -pthread" \
-	pcsclite_LIBS="-L/usr/lib -lpcsclitebcas"
+$ ./configure
 $ make
 $ sudo make install
 $ sudo /sbin/ldconfig
+
+* When you use the libpcsclitebcas library,
+$ ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclite-bcas -I/usr/include/PCSC -pthread" \
+        pcsclite_LIBS="-L/usr/lib -lpcsclitebcas"
 ```
 
 ## Changelog

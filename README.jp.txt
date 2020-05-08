@@ -198,11 +198,14 @@
     次に、以下のコマンドを実行して libaribb25 をコンパイルしてインストールします。
 
     $ ./bootstrap
-    $ ./configure CFLAGS="-I/usr/local/include/libpcsclite-bcas -I/usr/include/PCSC -pthread" \
-	   pcsclite_LIBS="-L/usr/lib -lpcsclitebcas"
+    $ ./configure
     $ make
     $ sudo make install
     $ sudo /sbin/ldconfig
+
+    * libpcsclitebcas ライブラリを使用する場合、
+    $ ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclite-bcas -I/usr/include/PCSC -pthread" \
+           pcsclite_LIBS="-L/usr/lib -lpcsclitebcas"
 
 【更新履歴】
   ・2020.05/02 - ver. 0.2.8
