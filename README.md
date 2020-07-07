@@ -162,6 +162,7 @@ If compiling from a checked out repository, please make sure you've got the clon
 Then run following commands to compile and install libaribb25:
 
 ```bash
+$ sudo apt -y install autoconf libtool
 $ ./bootstrap
 $ ./configure
 $ make
