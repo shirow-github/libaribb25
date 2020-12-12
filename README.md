@@ -4,9 +4,7 @@
 
 Basic implementation of the ARIB STD-B25 public standard.
 
-Forked from libarib25 and renamed to aribb25.
-Modified for VLC Media Player integration and cross platform
-builds.
+Forked from stz2012/libarib25.
 
 ----
 ## About STD-B25
