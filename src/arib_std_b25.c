@@ -537,7 +537,7 @@ static int reset_arib_std_b25(void *std_b25)
 
 static int flush_arib_std_b25(void *std_b25)
 {
-	int r,1;
+	int r,l;
 	int m,n;
 
 	int32_t crypt;
