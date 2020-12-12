@@ -535,7 +535,7 @@ static int reset_arib_std_b25(void *std_b25)
 
 static int flush_arib_std_b25(void *std_b25)
 {
-	int r;
+	int r,1;
 	int m,n;
 
 	int32_t crypt;
@@ -561,6 +561,9 @@ static int flush_arib_std_b25(void *std_b25)
 		r = select_unit_size(prv);
 		if(r < 0){
 			return r;
+		}
+		if(prv->unit_size < 188){
+			return ARIB_STD_B25_ERROR_NON_TS_INPUT_STREAM;
 		}
 	}
 
@@ -589,6 +592,12 @@ static int flush_arib_std_b25(void *std_b25)
 				curr = tail;
 				goto LAST;
 			}
+			if((p-curr) >= (unit-188)){
+				if(!append_work_buffer(&(prv->dbuf), p-(unit-188), unit-188)){
+					r = ARIB_STD_B25_ERROR_NO_ENOUGH_MEMORY;
+					goto LAST;
+				}
+			}
 			curr = p;
 		}
 
@@ -598,7 +607,12 @@ static int flush_arib_std_b25(void *std_b25)
 
 		if(hdr.transport_error_indicator != 0){
 			/* bit error - append output buffer without parsing */
-			if(!append_work_buffer(&(prv->dbuf), curr, unit)){
+			if((curr+unit) <= tail){
+				l = unit;
+			}else{
+				l = 188;
+			}
+			if(!append_work_buffer(&(prv->dbuf), curr, l)){
 				r = ARIB_STD_B25_ERROR_NO_ENOUGH_MEMORY;
 				goto LAST;
 			}
@@ -613,14 +627,14 @@ static int flush_arib_std_b25(void *std_b25)
 		p = curr+4;
 		if(hdr.adaptation_field_control & 0x02){
 			p += (p[0]+1);
-			n = unit - (p-curr);
+			n = 188 - (p-curr);
 			if( (n < 1) && ((n < 0) || (hdr.adaptation_field_control & 0x01)) ){
 				/* broken packet */
 				curr += 1;
 				continue;
 			}
 		}else{
-			n = unit - 4;
+			n = 188 - 4;
 		}
 
 		if( (crypt != 0) &&
@@ -651,7 +665,12 @@ static int flush_arib_std_b25(void *std_b25)
 			prv->map[pid].normal_packet += 1;
 		}
 
-		if(!append_work_buffer(&(prv->dbuf), curr, unit)){
+		if((curr+unit) <= tail){
+			l = unit;
+		}else{
+			l = 188;
+		}
+		if(!append_work_buffer(&(prv->dbuf), curr, l)){
 			r = ARIB_STD_B25_ERROR_NO_ENOUGH_MEMORY;
 			goto LAST;
 		}
@@ -810,8 +829,9 @@ LAST:
 	n = tail - curr;
 	if( (n < 1024) || (m > (prv->sbuf.max/2) ) ){
 		p = prv->sbuf.pool;
-		if(n > 0)
+		if(n > 0){
 			memcpy(p, curr, n);
+		}
 		prv->sbuf.head = p;
 		prv->sbuf.tail = p+n;
 	}else{
@@ -1071,6 +1091,14 @@ static int select_unit_size(ARIB_STD_B25_PRIVATE_DATA *prv)
 	head = prv->sbuf.head;
 	tail = prv->sbuf.tail;
 
+	if((tail-head) < (188*16)){
+		// need more data
+		return 0;
+	}
+	if((tail-head) > (188*32)){
+		tail = head + (188*32);
+	}
+
 	buf = head;
 	memset(count, 0, sizeof(count));
 
@@ -1148,20 +1176,20 @@ static int find_pat(ARIB_STD_B25_PRIVATE_DATA *prv)
 			p = curr+4;
 			if(hdr.adaptation_field_control & 0x02){
 				p += (p[0]+1);
-				size = unit - (p-curr);
+				size = 188 - (p-curr);
 				if(size < 1){
 					goto NEXT;
 				}
 			}else{
-				size = unit - 4;
+				size = 188 - 4;
 			}
 			if(prv->pat == NULL){
 				prv->pat = create_ts_section_parser();
 				if(prv->pat == NULL){
 					return ARIB_STD_B25_ERROR_NO_ENOUGH_MEMORY;
+					goto LAST;
 				}
 			}
-
 			n = prv->pat->put(prv->pat, &hdr, p, size);
 			if(n < 0){
 				r = ARIB_STD_B25_ERROR_PAT_PARSE_FAILURE;
@@ -1174,10 +1202,13 @@ static int find_pat(ARIB_STD_B25_PRIVATE_DATA *prv)
 				curr += unit;
 				goto LAST;
 			}
-			if(n > 0){
-				curr += unit;
-				goto LAST;
+			if(n == 0){
+				goto NEXT;
 			}
+			r = proc_pat(prv);
+			prv->sbuf.head = curr;
+			curr += unit;
+			goto LAST;
 		}
 	NEXT:
 		curr += unit;
@@ -1346,12 +1377,12 @@ static int find_pmt(ARIB_STD_B25_PRIVATE_DATA *prv)
 			p = curr+4;
 			if(hdr.adaptation_field_control & 0x02){
 				p += (p[0]+1);
-				size = unit - (p-curr);
+				size = 188 - (p-curr);
 				if(size < 1){
 					goto NEXT;
 				}
 			}else{
-				size = unit - 4;
+				size = 188 - 4;
 			}
 			if(prv->pat == NULL){
 				prv->pat = create_ts_section_parser();
@@ -1394,12 +1425,12 @@ static int find_pmt(ARIB_STD_B25_PRIVATE_DATA *prv)
 			p = curr + 4;
 			if(hdr.adaptation_field_control & 0x02){
 				p += (p[0]+1);
-				size = unit - (p-curr);
+				size = 188 - (p-curr);
 				if(size < 1){
 					goto NEXT;
 				}
 			}else{
-				size = unit - 4;
+				size = 188 - 4;
 			}
 
 			if(pgrm->pmt == NULL){
@@ -1721,12 +1752,12 @@ static int find_ecm(ARIB_STD_B25_PRIVATE_DATA *prv)
 			p = curr+4;
 			if(hdr.adaptation_field_control & 0x02){
 				p += (p[0]+1);
-				size = unit - (p-curr);
+				size = 188 - (p-curr);
 				if(size < 1){
 					goto NEXT;
 				}
 			}else{
-				size = unit - 4;
+				size = 188 - 4;
 			}
 			if(prv->pat == NULL){
 				prv->pat = create_ts_section_parser();
@@ -1769,12 +1800,12 @@ static int find_ecm(ARIB_STD_B25_PRIVATE_DATA *prv)
 			p = curr + 4;
 			if(hdr.adaptation_field_control & 0x02){
 				p += (p[0]+1);
-				size = unit - (p-curr);
+				size = 188 - (p-curr);
 				if(size < 1){
 					goto NEXT;
 				}
 			}else{
-				size = unit - 4;
+				size = 188 - 4;
 			}
 
 			if(dec->ecm == NULL){
@@ -2016,6 +2047,12 @@ static int proc_arib_std_b25(ARIB_STD_B25_PRIVATE_DATA *prv)
 				curr = tail;
 				goto LAST;
 			}
+			if((p-curr) >= (unit-188)){
+				if(!append_work_buffer(&(prv->dbuf), p-(unit-188), unit-188)){
+					r = ARIB_STD_B25_ERROR_NO_ENOUGH_MEMORY;
+					goto LAST;
+				}
+			}
 			curr = p;
 		}
 
@@ -2040,14 +2077,14 @@ static int proc_arib_std_b25(ARIB_STD_B25_PRIVATE_DATA *prv)
 		p = curr+4;
 		if(hdr.adaptation_field_control & 0x02){
 			p += (p[0]+1);
-			n = unit - (p-curr);
+			n = 188 - (p-curr);
 			if( (n < 1) && ((n < 0) || (hdr.adaptation_field_control & 0x01)) ){
 				/* broken packet */
 				curr += 1;
 				continue;
 			}
 		}else{
-			n = unit - 4;
+			n = 188 - 4;
 		}
 
 		if( (crypt != 0) &&
@@ -2239,7 +2276,9 @@ LAST:
 	n = tail - curr;
 	if( (n < 1024) || (m > (prv->sbuf.max/2) ) ){
 		p = prv->sbuf.pool;
-		memcpy(p, curr, n);
+		if(n > 0){
+			memcpy(p, curr, n);
+		}
 		prv->sbuf.head = p;
 		prv->sbuf.tail = p+n;
 	}else{
