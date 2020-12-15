@@ -1,6 +1,6 @@
 # aribb25 library
 
-*Current Version:* 0.2.8
+*Current Version:* 0.2.9
 
 Basic implementation of the ARIB STD-B25 public standard.
 
@@ -174,6 +174,13 @@ $ ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclite-bcas -I/usr/incl
 
 ## Changelog
 
+* 2020,12/15 - ver. 0.2.9
+
+  Changed to use libpcsclitebcas.  
+	Fixed automatic tracking of TS stream changes that sometimes fails.  
+	Fixed scrambling flag handling for packets with only an adaptation field.  
+	Changed the handling of put() errors and added an API to retrieve unprocessed buffers.  
+	
 * 2020,05/02 - ver. 0.2.8
 
   A minor bug has been fixed.  
