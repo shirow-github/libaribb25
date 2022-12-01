@@ -3,8 +3,8 @@ name: libaribb25 build test
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    paths-ignore:
+      - './.github/workflows/**.yml'
   workflow_dispatch:
 
 jobs:
