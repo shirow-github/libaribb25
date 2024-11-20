@@ -1,6 +1,6 @@
 # aribb25 library
 
-*Current Version:* 0.2.9
+*Current Version:* 0.2.10
 
 Basic implementation of the ARIB STD-B25 public standard.
 
@@ -173,6 +173,11 @@ $ ./configure pcsclite_CFLAGS="-I/usr/local/include/libpcsclite-bcas -I/usr/incl
 ```
 
 ## Changelog
+
+* 2024,11/20 - ver. 0.2.10
+  
+	Incorporated patches for macOS.  
+	Replaces macros deprecated in autoconf 2.71.  
 
 * 2020,12/15 - ver. 0.2.9
 
