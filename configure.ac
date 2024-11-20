@@ -8,7 +8,6 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_USE_SYSTEM_EXTENSIONS
 
 AC_PROG_CC
-AC_PROG_CC_STDC
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
@@ -69,10 +68,10 @@ AS_IF([test "$SYS" = mingw32],[
   AC_MSG_CHECKING([for PCSC.framework])
   gt_save_LIBS=$LIBS
   LIBS="$LIBS -Wl,-framework -Wl,PCSC"
-  AC_TRY_LINK([#include <PCSC/winscard.h>],
-    [SCardUnload()],
-  AC_MSG_RESULT([yes]),
-  AC_MSG_RESULT([no]))
+  AC_LINK_IFELSE(
+    [AC_LANG_PROGRAM([#include <PCSC/winscard.h>], [SCardUnload();])],
+    [AC_MSG_RESULT([yes])],
+    [AC_MSG_RESULT([no])])
   LIBS="$gt_save_LIBS"
   AC_SUBST(pcsclite_CFLAGS, ["-I$SDKROOT/System/Library/Frameworks/PCSC.framework/Headers"])
   AC_SUBST(PCSC_LIBS, ["-Wl,-framework -Wl,PCSC"])
