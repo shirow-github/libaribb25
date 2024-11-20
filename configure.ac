@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.69])
-AC_INIT([aribb25], [0.2.9], [kazhiro@marumo.ne.jp])
+AC_INIT([aribb25], [0.2.10], [kazhiro@marumo.ne.jp])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AC_CONFIG_MACRO_DIR([m4])
 
