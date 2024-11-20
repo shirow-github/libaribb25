@@ -39,4 +39,11 @@ PERFORMANCE OF THIS SOFTWARE.
 	#define _S_IWRITE     (S_IWUSR|S_IWGRP|S_IWOTH)
 #endif
 
+// macOS is not supported.
+// https://rentry.co/tschardev20240203
+#ifdef __APPLE__
+	typedef int32_t LONG;
+	typedef uint32_t DWORD;
+#endif
+
 #endif /* B25_PORTABLE_H */
